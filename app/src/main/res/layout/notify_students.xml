@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#000">
+
+    <com.darwindeveloper.horizontalscrollmenulibrary.custom_views.HorizontalScrollMenuView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/menutxt"
+        android:background="#d2d2d2"
+        app:backgroundMenuColor="#d2d2d2"
+        app:icon_height="30dp"
+        app:icon_width="30dp"
+        app:item_backgroundColor="#4B0082"
+        app:item_colorSelected="@color/colorAccent"
+        app:backgroundNotifications="@color/colorAccent"
+        app:item_marginBottom="20dp"
+        app:item_marginLeft="40dp"
+        app:item_marginRight="40dp"
+        app:item_marginTop="20dp"
+        app:item_textColor="#fff"
+        app:item_textSize="12sp">
+
+    </com.darwindeveloper.horizontalscrollmenulibrary.custom_views.HorizontalScrollMenuView>
+
+
+<LinearLayout
+    android:id="@+id/Formpart"
+    android:layout_marginTop="100dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/NotifyStudentss"
+        android:layout_gravity="center"
+        android:text="Send Notification"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:textSize="35sp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/subjecttext"
+        android:text="Subject:"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        android:layout_marginLeft="65dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/subject"
+        android:background="#ffffff"
+        android:layout_marginTop="10dp"
+        android:hint="Enter The Subject"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/Contenttext"
+        android:text="Content:"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="65dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/content"
+        android:background="#ffffff"
+        android:layout_marginTop="10dp"
+        android:hint="Enter The Text"
+        android:inputType="textMultiLine"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="30dp" />
+    <TextView
+        android:id="@+id/datetext"
+        android:text="Important Date::"
+        android:textColor="#fff"
+        android:textSize="23sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="65dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/datens"
+        android:background="#ffffff"
+        android:layout_marginTop="10dp"
+        android:inputType="date"
+        android:hint="Enter The Date"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_width="250dp"
+        android:layout_height="30dp" />
+
+    <Button
+        android:id="@+id/SendNotification"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="POST"
+        android:onClick="sendNotification"
+        android:background="@color/colorAccent"
+        android:textStyle="bold"
+        android:layout_width="250dp"
+        android:layout_height="40dp" />
+
+</LinearLayout>
+
+</RelativeLayout>

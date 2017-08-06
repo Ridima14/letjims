@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.darwindeveloper.horizontalscrollmenulibrary.custom_views.HorizontalScrollMenuView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/menutxt"
+        android:background="#d2d2d2"
+        app:backgroundMenuColor="#d2d2d2"
+        app:icon_height="30dp"
+        app:icon_width="30dp"
+        app:item_backgroundColor="#4B0082"
+        app:item_colorSelected="@color/colorAccent"
+        app:backgroundNotifications="@color/colorAccent"
+        app:item_marginBottom="20dp"
+        app:item_marginLeft="40dp"
+        app:item_marginRight="40dp"
+        app:item_marginTop="20dp"
+        app:item_textColor="#fff"
+        app:item_textSize="12sp">
+
+    </com.darwindeveloper.horizontalscrollmenulibrary.custom_views.HorizontalScrollMenuView>
+
+
+    <LinearLayout
+        android:id="@+id/buttonGrid"
+        android:background="#000"
+
+        android:layout_marginTop="127dp"
+        android:layout_width="390dp"
+        android:layout_height="440dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/triall"
+            android:text=""
+            android:textColor="#ff6821"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/topLayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/notifystudents"
+                android:layout_width="185dp"
+                android:layout_height="215dp"
+                android:background="@drawable/notifystudents"
+                 android:layout_marginLeft="5dp"
+                android:onClick="goToNS"
+                android:text="" />
+
+            <Button
+                android:id="@+id/queries"
+                android:background="@drawable/queriesimg"
+                android:layout_width="185dp"
+                android:layout_height="215dp"
+                android:layout_marginLeft="5dp"
+                android:onClick="goToQ"
+
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottomLayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/activityfeed"
+                android:layout_width="185dp"
+                android:layout_height="215dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:onClick="goToAF"
+                android:background="@drawable/activityfeedimg"
+                android:text="" />
+
+            <Button
+                android:id="@+id/submitmaterial"
+                android:layout_width="185dp"
+                android:layout_height="215dp"
+                android:onClick="goToSM"
+                android:text="Faculty login" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

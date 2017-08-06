@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "239554493512",
+    "firebase_url": "https://letsjims.firebaseio.com",
+    "project_id": "letsjims",
+    "storage_bucket": "letsjims.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239554493512:android:a5cbdbb7a764e10f",
+        "android_client_info": {
+          "package_name": "com.example.srirang.letsjims"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239554493512-gfv50g43knrh0qqqsfi63c6h22g8aqda.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.srirang.letsjims",
+            "certificate_hash": "37b2740fb412093d2cefecfdbefc532587a2a9fc"
+          }
+        },
+        {
+          "client_id": "239554493512-8grbr4p7bjqjhovtt56pkjcuaspsokba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsi2bCephDKaY7C_gu3kBSj5I7m7SGH5A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239554493512-8grbr4p7bjqjhovtt56pkjcuaspsokba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
