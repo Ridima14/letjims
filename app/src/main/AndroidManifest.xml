@@ -24,6 +24,7 @@
         <activity android:name=".NotifyStudents"/>
         <activity android:name=".FacultyLoginActivity"/>
         <activity android:name=".Query"/>
+        <activity android:name=".StudentHomepage"/>
 
     </application>
 

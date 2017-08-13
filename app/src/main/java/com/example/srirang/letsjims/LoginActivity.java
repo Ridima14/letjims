@@ -92,7 +92,7 @@ import static android.content.ContentValues.TAG;
                         if(task.isSuccessful()){
                             finish();                     //Add intent and change to student menu
 
-                            startActivity(new Intent(getApplicationContext(), menuT.class));
+                            startActivity(new Intent(getApplicationContext(), StudentHomepage.class));
                         }
                         else{
                             Toast.makeText(getApplicationContext(),"Could not Regitser..Please try again", Toast.LENGTH_SHORT).show();

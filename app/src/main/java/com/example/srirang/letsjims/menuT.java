@@ -23,6 +23,7 @@ public class menuT extends AppCompatActivity {
     TextView trial;
     Button notifystudents,queries,activityfeed,submitmaterial;
    public String facultyname;
+    public String chosenclass="";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +38,8 @@ public class menuT extends AppCompatActivity {
         facultyname=new String("Not proper");
         Intent intent=this.getIntent();
         if(intent !=null)
-            facultyname = intent.getStringExtra("Facultyname");
+            facultyname = intent.getStringExtra("Facultyname");  //Intent variables
+            chosenclass=intent.getStringExtra("ChosenClass").replaceAll("\\s+","");
 
         FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
 
@@ -47,31 +49,56 @@ public class menuT extends AppCompatActivity {
         trial.setText(s);
         //HORIZONTAL SCROLLBAR
         menu=(HorizontalScrollMenuView)findViewById(R.id.menutxt);
-        
+
         initmenu();
     }
 
-    private void initmenu() {
-    menu.addItem("CSE I",R.drawable.ic_class1);
-        menu.addItem("EC I",R.drawable.ic_class2);
-        menu.addItem("CSE II",R.drawable.ic_class3);
-        menu.addItem("EC II",R.drawable.ic_class4);
-        menu.addItem("Logout",R.drawable.ic_class5);
-
+    private void initmenu() {                        //Add initial class selected in loging acitivity
+        if(facultyname.equals("vandita@gmail.com")) {
+            menu.addItem("CSE II", R.drawable.ic_class1);
+            menu.addItem("CSE III", R.drawable.ic_class2);
+            menu.addItem("CSE IV", R.drawable.ic_class3);
+            menu.addItem("Logout", R.drawable.ic_class5);
+        }
+        else if(facultyname.equals("madhulika@gmail.com"))
+        {
+            menu.addItem("CSE II", R.drawable.ic_class1);
+            menu.addItem("CSE III", R.drawable.ic_class2);
+            menu.addItem("ECE II", R.drawable.ic_class3);
+            menu.addItem("Logout", R.drawable.ic_class5);
+        }
+        else if(facultyname.equals("pramod@gmail.com"))
+        {
+            menu.addItem("CSE II", R.drawable.ic_class1);
+            menu.addItem("ECE II", R.drawable.ic_class4);
+            menu.addItem("ME II", R.drawable.ic_class3);
+            menu.addItem("EE II", R.drawable.ic_class2);
+            menu.addItem("Logout", R.drawable.ic_class5);
+        }
         menu.setOnHSMenuClickListener(new HorizontalScrollMenuView.OnHSMenuClickListener() {
             @Override
             public void onHSMClick(MenuItem menuItem, int position) {
 
+                chosenclass=menuItem.getText();
+
                 if(menuItem.getText().equals("Logout"))
-                    logoutUser();
+                {
+                    logoutUser();}
+                else
+                {
+                    Intent intent=new Intent(menuT.this,menuT.class);
+                    intent.putExtra("ChosenClass",menuItem.getText().replaceAll("\\s+",""));
+                    startActivity(intent);
+                }
             }
+
         });
     }
 
 public void goToNS(View view)
 {
     Intent intent=new Intent(menuT.this,NotifyStudents.class);
-
+    intent.putExtra("ChosenCls",chosenclass);
     startActivity(intent);
 }
     public void goToQ(View view)

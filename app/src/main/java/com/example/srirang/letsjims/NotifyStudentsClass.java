@@ -15,12 +15,14 @@ public class NotifyStudentsClass {
     public String content;
     public String datens;
     public String facultyn;
+    public String classname;
 
-    public NotifyStudentsClass(String subject, String content,String datens,String facultyn) {
+    public NotifyStudentsClass(String subject, String content,String datens,String facultyn,String classname) {
         this.subject = subject;
         this.content = content;
        this.datens = datens;
         this.facultyn=facultyn;
+        this.classname=classname;
     }
   public NotifyStudentsClass(){}
 

@@ -62,12 +62,14 @@ public class FacultyLoginActivity extends AppCompatActivity {
 
     public void goToMenu(View view)
     {
-        final String ename=fname.getText().toString();
+
+        final String enamex=fname.getText().toString().toLowerCase();
+        final String ename=enamex+"@gmail.com";
         String epassword=fpassword.getText().toString();
 
 
         if(TextUtils.isEmpty(ename)){
-            Toast.makeText(getApplicationContext(), "Please Enter Email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please Enter First Name", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -93,6 +95,13 @@ public class FacultyLoginActivity extends AppCompatActivity {
                             finish();
                             Intent intent=new Intent(FacultyLoginActivity.this,menuT.class);
                             intent.putExtra("Facultyname",ename);
+                            if(ename.equals("vandita@gmail.com"))       //Initial class for
+                                                                         //Each teacher for intent extra
+                            intent.putExtra("ChosenClass","CSE II");
+                            else if(ename.equals("madhulika@gmail.com"))
+                                intent.putExtra("ChosenClass","CSE II");
+                            else if(ename.equals("pramod@gmail.com"))
+                                intent.putExtra("ChosenClass","CSE II");
                             startActivity(intent);
                         }
                         else{

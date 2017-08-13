@@ -29,6 +29,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
 
@@ -45,6 +47,7 @@ public class Register extends AppCompatActivity {
     private  Button buttonregi;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+    public Spinner dropdown1,dropdown2;
        private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
@@ -83,10 +86,19 @@ public class Register extends AppCompatActivity {
          });
 
 
-        Spinner dropdown = (Spinner) findViewById(R.id.spinner1);
-        String[] Course = new String[]{"Btech-CSE", "Btech-ECE", "Btech-CE", "Btech-MEL", "Btech-EE", "BCA", "LLB", "B.ED"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Course);
-        dropdown.setAdapter(adapter);
+        dropdown1 = (Spinner) findViewById(R.id.spinner1);
+        String[] Course1 = new String[]{"CSE", "ECE", "CE", "ME", "EE"};
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Course1);
+        dropdown1.setAdapter(adapter1);
+
+        dropdown2 = (Spinner) findViewById(R.id.spinner2);
+        String[] Course2 = new String[]{"I", "II", "III", "IV"};
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Course2);
+        dropdown2.setAdapter(adapter2);
+
+
+
+
 
     }       //END OF onCreate()
 
@@ -106,9 +118,14 @@ public class Register extends AppCompatActivity {
 
 
     private void registerUser(){
-        String email = edittextemail.getText().toString().trim();
+
+        //Getting values
+        final String email = edittextemail.getText().toString().trim();
         String password = edittextPassword.getText().toString().trim();
-        String name = edittextname.getText().toString().trim();
+        final String name = edittextname.getText().toString().trim();
+        final String branch=dropdown1.getSelectedItem().toString();
+        final String year=dropdown2.getSelectedItem().toString();
+        final String branchyear=branch +" "+ year;
 
         if(TextUtils.isEmpty(email)){
             Toast.makeText(getApplicationContext(), "Please Enter Email", Toast.LENGTH_SHORT).show();
@@ -133,8 +150,26 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+
+                            //Adding to database
+                            MakeUser makeUser=new MakeUser(name,email,branch,year,branchyear);
+
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference myRef = database.getReference();   //Root node NODE0
+                            DatabaseReference myRef1=myRef.child("Students");  //NODE1
+
+                            int index = email.indexOf('@');                 //Getting username
+                            String nameFromEmail = email.substring(0,index);
+                            DatabaseReference myRef2=myRef1.child(nameFromEmail);
+
+                            myRef2.setValue(makeUser);
+
+
+
+
                             Toast.makeText(getApplicationContext(),"Registered Successfully", Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(Register.this,LoginActivity.class);
+                            startActivity(intent);
                         }
                         else{
                             Toast.makeText(getApplicationContext(),"Could not Regitser..Please try again", Toast.LENGTH_SHORT).show();

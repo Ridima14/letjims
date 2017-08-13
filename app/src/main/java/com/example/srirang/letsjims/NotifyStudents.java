@@ -31,6 +31,7 @@ public class NotifyStudents extends AppCompatActivity{
     EditText content,datens,subject;
     Button sendNotification;
     HorizontalScrollMenuView menu;
+    public String choosenclass;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,10 @@ public class NotifyStudents extends AppCompatActivity{
         content=(EditText)findViewById(R.id.content);
         datens=(EditText)findViewById(R.id.datens);
         subject=(EditText)findViewById(R.id.subject);
+        Intent intent=this.getIntent();
 
+        if(intent!=null)
+         choosenclass=intent.getStringExtra("ChosenCls");
         sendNotification=(Button)findViewById(R.id.SendNotification);
 
         menu=(HorizontalScrollMenuView)findViewById(R.id.menutxt);
@@ -71,7 +75,7 @@ public class NotifyStudents extends AppCompatActivity{
 
 
        String facultyLogged=firebaseAuth.getCurrentUser().getEmail();
-       NotifyStudentsClass notifyStudentsClass=new NotifyStudentsClass(subjecttext,contenttext,datenesdate,facultyLogged);
+       NotifyStudentsClass notifyStudentsClass=new NotifyStudentsClass(subjecttext,contenttext,datenesdate,facultyLogged,choosenclass);
        FirebaseDatabase database = FirebaseDatabase.getInstance();
        DatabaseReference myRef = database.getReference();   //Root node NODE0
         DatabaseReference myRef1=myRef.child("NotifyStudents");  //NODE1
