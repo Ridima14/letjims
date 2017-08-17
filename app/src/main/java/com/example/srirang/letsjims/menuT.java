@@ -36,16 +36,16 @@ public class menuT extends AppCompatActivity {
         submitmaterial=(Button)findViewById(R.id.submitmaterial);
         trial=(TextView)findViewById(R.id.triall);
         facultyname=new String("Not proper");
-        Intent intent=this.getIntent();
-        if(intent !=null)
+        Intent intent=this.getIntent();         //Get intent
+        if(intent !=null) {
             facultyname = intent.getStringExtra("Facultyname");  //Intent variables
-            chosenclass=intent.getStringExtra("ChosenClass").replaceAll("\\s+","");
-
+            chosenclass = intent.getStringExtra("ChosenClass").replaceAll("\\s+", "");       //ERROR HERE AND EVERYWHERE WITH iNTENT
+        }
         FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
 
 
         String s=firebaseAuth.getCurrentUser().getEmail();
-
+           facultyname=s;
         trial.setText(s);
         //HORIZONTAL SCROLLBAR
         menu=(HorizontalScrollMenuView)findViewById(R.id.menutxt);
@@ -98,7 +98,8 @@ public class menuT extends AppCompatActivity {
 public void goToNS(View view)
 {
     Intent intent=new Intent(menuT.this,NotifyStudents.class);
-    intent.putExtra("ChosenCls",chosenclass);
+
+    intent.putExtra("ChosenClass",chosenclass);
     startActivity(intent);
 }
     public void goToQ(View view)
@@ -106,13 +107,13 @@ public void goToNS(View view)
         Intent intent=new Intent(menuT.this,Query.class);
         startActivity(intent);
     }
-    /*
+
     public void goToAF(View view)
     {
         Intent intent=new Intent(menuT.this,ActivityFeed.class);
         startActivity(intent);
     }
- */   public void goToSM(View view)
+    public void goToSM(View view)
     {
         Intent intent=new Intent(menuT.this,FacultyLoginActivity.class);
         startActivity(intent);

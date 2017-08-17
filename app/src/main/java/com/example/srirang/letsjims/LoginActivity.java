@@ -16,11 +16,18 @@ import android.widget.Toast;
 import android.app.ProgressDialog;
 
 
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
@@ -36,6 +43,9 @@ import static android.content.ContentValues.TAG;
             private EditText edittextemail;
             private ProgressDialog progressDialog;
             private FirebaseAuth firebaseAuth;
+            private DatabaseReference nameFromDB;
+            private MakeUser studentlogged;
+            public String branchyear1;
 
 
             @Override
@@ -47,6 +57,8 @@ import static android.content.ContentValues.TAG;
                 edittextPassword = (EditText)findViewById(R.id.edittextPassword);
                 edittextemail = (EditText)findViewById(R.id.edittextemail);
                 firebaseAuth=FirebaseAuth.getInstance();
+
+                studentlogged=new MakeUser();
 
           /*      if(firebaseAuth.getCurrentUser() !=null){       //User already logged in
                     //Change code,pass user name to next activity
@@ -66,7 +78,7 @@ import static android.content.ContentValues.TAG;
             }
 
     private void userLogin(){
-        String email = edittextemail.getText().toString().trim();
+        final String email = edittextemail.getText().toString().trim();
         String password = edittextPassword.getText().toString().trim();
         if(TextUtils.isEmpty(email)){
             Toast.makeText(getApplicationContext(), "Please Enter Email", Toast.LENGTH_SHORT).show();
@@ -92,7 +104,9 @@ import static android.content.ContentValues.TAG;
                         if(task.isSuccessful()){
                             finish();                     //Add intent and change to student menu
 
-                            startActivity(new Intent(getApplicationContext(), StudentHomepage.class));
+                            Toast.makeText(getApplicationContext(),"Logging in...",Toast.LENGTH_SHORT).show();
+                            findFromFirebaseBranchYear(email);
+
                         }
                         else{
                             Toast.makeText(getApplicationContext(),"Could not Regitser..Please try again", Toast.LENGTH_SHORT).show();
@@ -101,18 +115,14 @@ import static android.content.ContentValues.TAG;
                 });
 
     }
-
-
     @Override
     public void onClick(View view){
 
         if(view==buttonlogin)
         {
-
             userLogin();
         }
     }
-
 
     public void onCreateAccount(View view)
     {
@@ -126,6 +136,34 @@ import static android.content.ContentValues.TAG;
         startActivity(intent);
     }
 
+    public void findFromFirebaseBranchYear(String email)
+            {
+                int index = email.indexOf('@');                 //Getting username
+                String nameFromEmail = email.substring(0,index);
+                System.out.println(nameFromEmail);
 
+                FirebaseDatabase database=FirebaseDatabase.getInstance();
+                DatabaseReference ref=database.getReference().child("Students").child(nameFromEmail);
+                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
 
+                        branchyear1=dataSnapshot.child("branchyear").getValue(String.class);
+
+                        System.out.println("Inside findMethod"+dataSnapshot.child("branchyear").getValue(String.class));
+                        System.out.println("Inside findMethod"+dataSnapshot.child("name").getValue(String.class));
+
+                        if(branchyear1!=null)
+                        {
+                            Intent intent = new Intent(LoginActivity.this,StudentHomepage.class);
+                            intent.putExtra("branchyear",branchyear1);
+                            startActivity(intent);
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
 }

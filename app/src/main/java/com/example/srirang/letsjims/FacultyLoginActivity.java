@@ -43,7 +43,7 @@ public class FacultyLoginActivity extends AppCompatActivity {
         floginbtn=(Button)findViewById(R.id.floginbtn);
         firebaseAuth=FirebaseAuth.getInstance();
 
-        if(firebaseAuth.getCurrentUser() !=null){       //User already logged in
+    /*    if(firebaseAuth.getCurrentUser() !=null){       //User already logged in
             //Change code,pass user name to next activity
             Toast.makeText(getApplicationContext(),"Already logged in",Toast.LENGTH_SHORT).show();
             String s=firebaseAuth.getCurrentUser().getEmail();
@@ -56,6 +56,7 @@ public class FacultyLoginActivity extends AppCompatActivity {
 
 
         }
+        */
 
     }
 
