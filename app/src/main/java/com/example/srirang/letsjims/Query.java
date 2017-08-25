@@ -1,5 +1,6 @@
 package com.example.srirang.letsjims;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -60,6 +61,8 @@ public class Query extends ActionBarActivity implements View.OnClickListener,
     private MessageDataSource.MessagesListener mListener;
 
     private String facultyname;
+    private String chosenclass;
+    private String isfaculty;
 
 
     @Override
@@ -71,8 +74,14 @@ public class Query extends ActionBarActivity implements View.OnClickListener,
         setContentView(R.layout.query_interface);
 
 
+        Intent intent=this.getIntent();
+        if(intent!=null)
+        {
+            chosenclass=intent.getStringExtra("ChosenClass");
+            isfaculty=intent.getStringExtra("IsFaculty");
+        }
 
-        mRecipient = "cse2";                //name from top horizontalScrollbar
+        mRecipient = chosenclass;                //name from top horizontalScrollbar
 
 
 
@@ -107,11 +116,10 @@ public class Query extends ActionBarActivity implements View.OnClickListener,
         int index = facultyname.indexOf('@');                 //Getting username
         facultyname = facultyname.substring(0,index);
 
-        String[] ids = {facultyname,"aaa"};           //add loginname & receivername from msgList
-                                                      //aaa is cse1 and aab is cse2 baa is ece1..
-        Arrays.sort(ids);
+        String[] ids = {facultyname,chosenclass};           //add loginname & receivername from msgList
 
-        mConvoId = ids[0]+ids[1];
+
+        mConvoId = ids[1]+ids[0];        //First Class Name Then Faculty Name in Node Firebase DB
 
 
 
@@ -216,7 +224,7 @@ public class Query extends ActionBarActivity implements View.OnClickListener,
 
             int sdk = Build.VERSION.SDK_INT;
 
-            if (message.getmSender().equals(facultyname)){       //Login name
+            if (isfaculty.equals("ateacher")){       //Login name
 
                 if (sdk >= Build.VERSION_CODES.JELLY_BEAN) {
 

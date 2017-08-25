@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.darwindeveloper.horizontalscrollmenulibrary.custom_views.HorizontalScrollMenuView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/menutxt"
+        android:background="#d2d2d2"
+        app:backgroundMenuColor="#d2d2d2"
+        app:icon_height="30dp"
+        app:icon_width="30dp"
+        app:item_backgroundColor="#4B0082"
+        app:item_colorSelected="@color/colorAccent"
+        app:backgroundNotifications="@color/colorAccent"
+        app:item_marginBottom="20dp"
+        app:item_marginLeft="40dp"
+        app:item_marginRight="40dp"
+        app:item_marginTop="20dp"
+        app:item_textColor="#fff"
+        app:item_textSize="12sp">
+
+    </com.darwindeveloper.horizontalscrollmenulibrary.custom_views.HorizontalScrollMenuView>
+
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="370dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="20px"
+        android:layout_marginTop="127dp"
+        android:id="@+id/listViews" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/listViews"
+        android:gravity="bottom">
+
+
+        <Button
+            android:id="@+id/Imgbtn1"
+            android:text="ADD NOTICE"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+
+
+            />
+
+        <Button
+
+            android:id="@+id/Imgbtn2"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:text="MATERIAL"
+            android:layout_margin="0dp"
+            />
+
+        <Button
+            android:id="@+id/Imgbtn3"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:text="QUERY"
+            android:layout_margin="0dp"
+             />
+
+    </LinearLayout>
+
+</RelativeLayout>

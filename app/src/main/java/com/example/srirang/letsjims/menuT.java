@@ -106,6 +106,7 @@ public void goToNS(View view)
     {
         Intent intent=new Intent(menuT.this,Query.class);
         intent.putExtra("ChosenClass",chosenclass);
+        intent.putExtra("IsFaculty","afaculty");
         startActivity(intent);
     }
 
