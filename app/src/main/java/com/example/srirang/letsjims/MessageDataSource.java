@@ -47,7 +47,7 @@ public class MessageDataSource {
         msg.put(COLUMN_TEXT, message.getmText());
 
         FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
-        String facultyname=firebaseAuth.getCurrentUser().getEmail();
+        String facultyname=firebaseAuth.getCurrentUser().getEmail();   //For student this will be diffrent.
 
         msg.put(COLUMN_SENDER,facultyname);  //take value from login page
 

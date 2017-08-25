@@ -105,12 +105,14 @@ public void goToNS(View view)
     public void goToQ(View view)
     {
         Intent intent=new Intent(menuT.this,Query.class);
+        intent.putExtra("ChosenClass",chosenclass);
         startActivity(intent);
     }
 
     public void goToAF(View view)
     {
         Intent intent=new Intent(menuT.this,ActivityFeed.class);
+        intent.putExtra("ChosenClass",chosenclass);
         startActivity(intent);
     }
     public void goToSM(View view)
