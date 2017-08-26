@@ -175,7 +175,7 @@ System.out.println("ENtered new activity...");
                     }
                     else
                     {
-                        System.out.println("Teacher was:"+post.facultyn);
+                        System.out.println("Teacher who isnt in db was:"+post.facultyn);
                     }
 
 
