@@ -50,8 +50,10 @@ public class MessageDataSource {
         String facultyname=firebaseAuth.getCurrentUser().getEmail();   //For student this will be diffrent.
 
         msg.put(COLUMN_SENDER,facultyname);  //take value from login page
+        int index = facultyname.indexOf('@');                 //Getting username
+        facultyname = facultyname.substring(0,index);
 
-        sRef.child(convoId).child(key).setValue(msg);
+        sRef.child(facultyname).child(convoId).child(key).setValue(msg);
 
     }
 
@@ -62,8 +64,12 @@ public class MessageDataSource {
     public static MessagesListener addMessagesListener(String convoId, final MessagesCallbacks callbacks){
 
         MessagesListener listener = new MessagesListener(callbacks);
+        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+        String facultyname=firebaseAuth.getCurrentUser().getEmail();   //For student this will be diffrent.
+        int index = facultyname.indexOf('@');                 //Getting username
+        facultyname = facultyname.substring(0,index);
 
-        sRef.child(convoId).addChildEventListener(listener);
+        sRef.child(facultyname).child(convoId).addChildEventListener(listener);
 
         return listener;
 

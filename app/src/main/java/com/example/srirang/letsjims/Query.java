@@ -78,6 +78,7 @@ public class Query extends ActionBarActivity implements View.OnClickListener,
         if(intent!=null)
         {
             chosenclass=intent.getStringExtra("ChosenClass");
+            System.out.println("Inside intent of query for checking intent"+chosenclass);
             isfaculty=intent.getStringExtra("IsFaculty");
         }
 
@@ -118,8 +119,8 @@ public class Query extends ActionBarActivity implements View.OnClickListener,
 
         String[] ids = {facultyname,chosenclass};           //add loginname & receivername from msgList
 
-
-        mConvoId = ids[1]+ids[0];        //First Class Name Then Faculty Name in Node Firebase DB
+                                  //Changed so that one interface for one teacher
+        mConvoId = ids[1];        //First Class Name Then Faculty Name in Node Firebase DB
 
 
 

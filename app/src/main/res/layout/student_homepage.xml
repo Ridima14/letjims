@@ -28,86 +28,9 @@
 
     <RelativeLayout
         android:id="@+id/buttonscontents"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="130dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
-        <LinearLayout
-            android:id="@+id/generalll"
-            android:layout_marginTop="2dp"
-            android:layout_centerHorizontal="true"
-            android:orientation="horizontal"
-            android:background="#fff"
-            android:layout_width="280dp"
-            android:layout_height="40dp">
-
-
-            <TextView
-
-                android:id="@+id/generaltext"
-                android:text="General Notifications"
-                android:textColor="#FFAD2B"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <ImageButton
-                android:id="@+id/generalplus"
-         android:onClick="getGeneralNotification"
-                android:layout_marginLeft="40dp"
-                android:src="@drawable/ic_plus_icon"
-                android:background="#fff"
-                android:layout_width="45dp"
-                android:layout_height="40dp" />
-        </LinearLayout>
-
-
-        <WebView
-            android:id="@+id/generalweb"
-            android:layout_below="@id/generalll"
-            android:layout_centerHorizontal="true"
-            android:layout_width="280dp"
-            android:layout_height="0dp">
-
-        </WebView>
-
-        <LinearLayout
-            android:id="@+id/collegell"
-            android:layout_marginTop="2dp"
-            android:layout_centerHorizontal="true"
-            android:orientation="horizontal"
-            android:background="#fff"
-            android:layout_below="@id/generalll"
-            android:layout_width="280dp"
-            android:layout_height="40dp">
-
-            <TextView
-
-                android:id="@+id/collegetext"
-                android:text="College news"
-                android:textColor="#FFAD2B"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <ImageButton
-                android:id="@+id/collegeplus"
-             android:onClick="getCollegeNews"
-                android:layout_marginLeft="110dp"
-                android:src="@drawable/ic_plus_icon"
-                android:background="#fff"
-                android:layout_width="45dp"
-                android:layout_height="40dp" />
-        </LinearLayout>
-
-
 
 
         <LinearLayout
@@ -117,7 +40,7 @@
             android:orientation="horizontal"
             android:background="#fff"
             android:layout_width="280dp"
-            android:layout_below="@id/collegell"
+
             android:layout_height="40dp">
 
             <TextView

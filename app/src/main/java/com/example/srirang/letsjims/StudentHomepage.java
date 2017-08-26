@@ -40,10 +40,10 @@ public class StudentHomepage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_homepage);
 
-        generalplus=(ImageButton)findViewById(R.id.generalplus);
-        collegeplus=(ImageButton)findViewById(R.id.collegeplus);
+     /*   generalplus=(ImageButton)findViewById(R.id.generalplus);
+        collegeplus=(ImageButton)findViewById(R.id.collegeplus);   */ //Removed top two linear layouts
         univplus=(ImageButton)findViewById(R.id.universityplus);
-        tv1=(TextView)findViewById(R.id.generaltext);
+       // tv1=(TextView)findViewById(R.id.generaltext);
         webView=(WebView)findViewById(R.id.collegeweb);
         branchyear=new String("");
 
@@ -150,7 +150,7 @@ public class StudentHomepage extends AppCompatActivity {
         });
     }
   //GOTTA WORK ON SCROLLING TO DESIRED POSITION
-    public void getGeneralNotification(View view)
+  /*  public void getGeneralNotification(View view)
     {
 
     }
@@ -166,6 +166,8 @@ public class StudentHomepage extends AppCompatActivity {
             webView.setScrollY(450);
              webView.setScrollX(500);
     }
+
+    */
     public void getUniversityNews(View view)
     {
         webView.setWebViewClient(new WebViewClient() {
