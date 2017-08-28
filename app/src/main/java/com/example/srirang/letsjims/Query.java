@@ -201,7 +201,7 @@ public class Query extends ActionBarActivity implements View.OnClickListener,
 
 
 
-
+//
 
 
             String boldText = message.getmSender();

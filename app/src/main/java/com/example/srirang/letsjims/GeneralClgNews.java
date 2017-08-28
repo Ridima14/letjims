@@ -24,7 +24,7 @@ import java.util.List;
  * Created by Srirang on 8/15/2017.
  */
 
-public class ActivityFeed extends AppCompatActivity {
+public class GeneralClgNews extends AppCompatActivity {
 
 
 
@@ -41,9 +41,9 @@ public class ActivityFeed extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed);
+        setContentView(R.layout.activity_general_clg_news);
 
-         listView=(ListView)findViewById(R.id.listitems); //d
+        listView=(ListView)findViewById(R.id.listitems);
 
 
 
@@ -61,18 +61,20 @@ public class ActivityFeed extends AppCompatActivity {
         System.out.println("Inside Firebase...");
         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
         DatabaseReference databaseReference=firebaseDatabase.getReference(); //Root node
-        databaseReference.child("ActivityFeed").addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child("CollegeNews").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot postdata:dataSnapshot.getChildren())
                 {
-                    ActivityFeedClass post=postdata.getValue(ActivityFeedClass.class);
+                    GeneralClgNewsClass post=postdata.getValue(GeneralClgNewsClass.class);
 
 
-                    ownerl.add(post.date+":"+post.owner+":"+post.classname);
+                    ownerl.add(post.date+":"+post.subject);
 
-                    contentl.add(post.subject);
-                    System.out.println(post.subject);
+
+                    contentl.add(post.content);
+                    System.out.println(post.content);
+
 
                 }
                 simpleArray();
@@ -93,8 +95,7 @@ public class ActivityFeed extends AppCompatActivity {
         ownerr=ownerl.toArray(ownerr);
         for(int j=0;j<ownerr.length;j++)
 
-
-        contentt=new String[contentl.size()];
+            contentt=new String[contentl.size()];
         contentt=contentl.toArray(contentt);
         String[] from = new String[] {"col1", "col2"};
         int[] to = new int[] {R.id.ownerText,R.id.contentText};
@@ -104,16 +105,14 @@ public class ActivityFeed extends AppCompatActivity {
         for(int i = 0; i < ownerr.length; i++){
             HashMap<String, String> map = new HashMap<String, String>();
             map.put("col1", "" + ownerr[i]);
-           System.out.println("Inside adapter for loop");
+            System.out.println("Inside adapter for loop");
             map.put("col2", "" + contentt[i]);
 
             fillMaps.add(map);
         }
 
-        simpleAdapter = new SimpleAdapter(this, fillMaps, R.layout.activityfeed_items, from, to);
+        simpleAdapter = new SimpleAdapter(this, fillMaps, R.layout.activity_general_news_class, from, to);
         listView.setAdapter(simpleAdapter);
     }
 
 }
-
-

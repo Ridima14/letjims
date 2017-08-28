@@ -64,7 +64,7 @@ public class StudentHomepage extends AppCompatActivity {
         if(intent !=null) {
             branchyear=intent.getStringExtra("branchyear");
 
-
+//a
         }
 
         //tv1.setText(branchyear);
