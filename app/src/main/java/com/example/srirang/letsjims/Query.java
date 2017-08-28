@@ -225,7 +225,7 @@ public class Query extends ActionBarActivity implements View.OnClickListener,
 
             int sdk = Build.VERSION.SDK_INT;
 
-            if (isfaculty.equals("ateacher")){       //Login name
+            if (isfaculty.equals("ateacher")){       //Login name ?
 
                 if (sdk >= Build.VERSION_CODES.JELLY_BEAN) {
 
