@@ -67,7 +67,7 @@ public class StudentHomepage extends AppCompatActivity {
 
         }
 
-        tv1.setText(branchyear);
+        //tv1.setText(branchyear);
 
         //HORIZONTAL SCROLLBAR
         menu=(HorizontalScrollMenuView)findViewById(R.id.menutxt);

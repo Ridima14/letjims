@@ -97,7 +97,7 @@ public class ActivityFeed extends AppCompatActivity {
         contentt=new String[contentl.size()];
         contentt=contentl.toArray(contentt);
         String[] from = new String[] {"col1", "col2"};
-int[] to = new int[] {R.id.ownerText,R.id.contentText};
+        int[] to = new int[] {R.id.ownerText,R.id.contentText};
 
         List<HashMap<String, String>> fillMaps = new ArrayList<HashMap<String, String>>();
 

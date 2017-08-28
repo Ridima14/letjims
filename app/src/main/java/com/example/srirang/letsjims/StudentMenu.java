@@ -229,4 +229,18 @@ System.out.println("ENtered new activity...");
 
 
     }
+
+    public void onMaterialClicked(View view)
+    {
+
+    }
+
+    public void onQueryInterface(View view)
+    {
+            Intent intent=new Intent(getApplicationContext(),StudentQuery.class);
+        intent.putExtra("TeacherName",chosenteacher);
+        intent.putExtra("IsFaculty","astudent");
+        intent.putExtra("ChosenClass",branchyear);
+        startActivity(intent);
+    }
 }

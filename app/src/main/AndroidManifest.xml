@@ -27,6 +27,7 @@
         <activity android:name=".StudentHomepage"/>
         <activity android:name=".ActivityFeed"/>
         <activity android:name=".StudentMenu"/>
+        <activity android:name=".StudentQuery"/>
 
     </application>
 

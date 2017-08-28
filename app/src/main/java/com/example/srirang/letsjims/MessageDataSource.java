@@ -57,6 +57,32 @@ public class MessageDataSource {
 
     }
 
+    //For student side query!!!
+
+    public static void saveMessage(Message message, String convoId,String facultyname1,String studentname){
+
+        Date date = message.getmDate();
+
+        String key = sDateFormat.format(date);
+
+        HashMap<String, String> msg = new HashMap<>();
+
+
+        msg.put(COLUMN_TEXT, message.getmText());
+
+           //For student this will be diffrent.
+
+        msg.put(COLUMN_SENDER,studentname);//take value from login page
+
+        //Facultyname1 is name iwthout @ sign
+        System.out.println("CHECKING INSIDE OVERLOADED SAVEMESSAGE METHOD+"+facultyname1+" "+studentname);
+
+
+
+        sRef.child(facultyname1).child(convoId).child(key).setValue(msg);
+
+    }
+
 
 
 
@@ -70,6 +96,21 @@ public class MessageDataSource {
         facultyname = facultyname.substring(0,index);
 
         sRef.child(facultyname).child(convoId).addChildEventListener(listener);
+
+        return listener;
+
+
+
+    }
+
+    //FOR STUDENTS MESSAGE LISTENER
+
+    public static MessagesListener addMessagesListener(String convoId, final MessagesCallbacks callbacks,String teachername){
+
+        MessagesListener listener = new MessagesListener(callbacks);
+
+
+        sRef.child(teachername).child(convoId).addChildEventListener(listener);
 
         return listener;
 
