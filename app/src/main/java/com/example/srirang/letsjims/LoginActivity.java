@@ -109,7 +109,7 @@ import static android.content.ContentValues.TAG;
 
                         }
                         else{
-                            Toast.makeText(getApplicationContext(),"Could not Regitser..Please try again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Could not Login..Please try again", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

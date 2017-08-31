@@ -90,8 +90,11 @@
                 android:id="@+id/submitmaterial"
                 android:layout_width="185dp"
                 android:layout_height="215dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
                 android:onClick="goToSM"
-                android:text="Faculty login" />
+                android:background="@drawable/smaterial"
+                android:text="" />
         </LinearLayout>
     </LinearLayout>
 

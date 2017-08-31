@@ -201,7 +201,7 @@ public class Query extends ActionBarActivity implements View.OnClickListener,
 
 
 
-//
+//a
 
 
             String boldText = message.getmSender();
@@ -225,21 +225,8 @@ public class Query extends ActionBarActivity implements View.OnClickListener,
 
             int sdk = Build.VERSION.SDK_INT;
 
-            if (isfaculty.equals("ateacher")){       //Login name ?
-
-                if (sdk >= Build.VERSION_CODES.JELLY_BEAN) {
-
-                    nameView.setBackground(getDrawable(R.drawable.bubbler));
-
-                } else{
-
-                    nameView.setBackgroundDrawable(getDrawable(R.drawable.bubbler));
-
-                }
-
-                layoutParams.gravity = Gravity.LEFT;
-
-            }else{
+            System.out.println("What is the value of isFaculty?+"+isfaculty);
+            if (boldText.equals("madulika@gmail.com") || boldText.equals("vandita@gmail.com")){       //Login name ?
 
                 if (sdk >= Build.VERSION_CODES.JELLY_BEAN) {
 
@@ -252,6 +239,20 @@ public class Query extends ActionBarActivity implements View.OnClickListener,
                 }
 
                 layoutParams.gravity = Gravity.RIGHT;
+
+            }else{
+
+                if (sdk >= Build.VERSION_CODES.JELLY_BEAN) {
+
+                    nameView.setBackground(getDrawable(R.drawable.bubblerright));
+
+                } else{
+
+                    nameView.setBackgroundDrawable(getDrawable(R.drawable.bubblerright));
+
+                }
+
+                layoutParams.gravity = Gravity.LEFT;
 
             }
 

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -36,6 +37,11 @@ public class menuT extends AppCompatActivity {
         submitmaterial=(Button)findViewById(R.id.submitmaterial);
         trial=(TextView)findViewById(R.id.triall);
         facultyname=new String("Not proper");
+
+        Toast toast=Toast.makeText(getApplicationContext(),"Horizontal list of classes.",Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.TOP,0,0);
+        toast.show();
+
         Intent intent=this.getIntent();         //Get intent
         if(intent !=null) {
             facultyname = intent.getStringExtra("Facultyname");  //Intent variables

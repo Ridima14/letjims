@@ -112,6 +112,8 @@ System.out.println("ENtered new activity...");
                 else if(menuItem.getText().equals("General"))
                 {
                     //Add intent to new general class
+                    Intent intent=new Intent(getApplicationContext(),GeneralClgNews.class);
+                    startActivity(intent);
                 }
                 else if(menuItem.getText().equals("Notice"))
                 {
@@ -122,6 +124,8 @@ System.out.println("ENtered new activity...");
                 else if(menuItem.getText().equals("Events"))
                 {
                     //Add intent to new event class
+                    Intent intent=new Intent(getApplicationContext(),Event.class);
+                    startActivity(intent);
                 }
                 else
                 {

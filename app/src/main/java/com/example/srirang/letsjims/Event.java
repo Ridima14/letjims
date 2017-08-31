@@ -42,11 +42,11 @@ public class Event extends Activity implements
         }
 
         listView = (ListView) findViewById(R.id.list);
-       /* CustomListViewAdapter adapter = new CustomListViewAdapter(this,
+        CustomListViewAdapter adapter = new CustomListViewAdapter(this,
                 R.layout.list_item, rowItems);
 
-                */
-       // listView.setAdapter(adapter);
+
+       listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
     }
 

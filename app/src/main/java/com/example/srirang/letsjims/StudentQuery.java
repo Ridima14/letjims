@@ -230,21 +230,8 @@ public class StudentQuery extends ActionBarActivity implements View.OnClickListe
 
             int sdk = Build.VERSION.SDK_INT;
 
-            if (isfaculty.equals("ateacher")){       //Login name
-
-                if (sdk >= Build.VERSION_CODES.JELLY_BEAN) {
-
-                    nameView.setBackground(getDrawable(R.drawable.bubbler));
-
-                } else{
-
-                    nameView.setBackgroundDrawable(getDrawable(R.drawable.bubbler));
-
-                }
-
-                layoutParams.gravity = Gravity.LEFT;
-
-            }else{
+            System.out.println("Value of boldtext inside studentquery:"+boldText);
+            if (boldText.equals("madhulika@gmail.com") || boldText.equals("vandita@gmail.com")){       //Login name
 
                 if (sdk >= Build.VERSION_CODES.JELLY_BEAN) {
 
@@ -257,6 +244,20 @@ public class StudentQuery extends ActionBarActivity implements View.OnClickListe
                 }
 
                 layoutParams.gravity = Gravity.RIGHT;
+
+            }else{
+
+                if (sdk >= Build.VERSION_CODES.JELLY_BEAN) {
+
+                    nameView.setBackground(getDrawable(R.drawable.bubblerright));
+
+                } else{
+
+                    nameView.setBackgroundDrawable(getDrawable(R.drawable.bubblerright));
+
+                }
+
+                layoutParams.gravity = Gravity.LEFT;
 
             }
 
@@ -274,4 +275,4 @@ public class StudentQuery extends ActionBarActivity implements View.OnClickListe
 
     }
 
-}//a
+}

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -68,7 +69,9 @@ public class StudentHomepage extends AppCompatActivity {
         }
 
         //tv1.setText(branchyear);
-
+        Toast toast=Toast.makeText(getApplicationContext(),"Horizontal list of your subjects.",Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.TOP,0,0);
+        toast.show();
         //HORIZONTAL SCROLLBAR
         menu=(HorizontalScrollMenuView)findViewById(R.id.menutxt);
 
@@ -113,6 +116,8 @@ public class StudentHomepage extends AppCompatActivity {
                 else if(menuItem.getText().equals("General"))
                 {
                     //Add intent to new general class
+                    Intent intent=new Intent(getApplicationContext(),GeneralClgNews.class);
+                    startActivity(intent);
                 }
                 else if(menuItem.getText().equals("Notice"))
                 {
@@ -123,6 +128,8 @@ public class StudentHomepage extends AppCompatActivity {
                 else if(menuItem.getText().equals("Events"))
                 {
                     //Add intent to new event class
+                    Intent intent=new Intent(getApplicationContext(),Event.class);
+                    startActivity(intent);
                 }
                 else
                 {

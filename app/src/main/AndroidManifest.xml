@@ -28,6 +28,9 @@
         <activity android:name=".ActivityFeed"/>
         <activity android:name=".StudentMenu"/>
         <activity android:name=".StudentQuery"/>
+        <activity android:name=".Event"/>
+        <activity android:name=".GeneralClgNews"/>
+
 
     </application>
 
