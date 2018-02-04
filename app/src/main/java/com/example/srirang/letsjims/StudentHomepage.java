@@ -97,6 +97,7 @@ public class StudentHomepage extends AppCompatActivity {
                  menu.addItem("COMM. SKILLS", R.drawable.ic_class5);
              }
              menu.addItem("Events", R.drawable.ic_class5);
+             menu.addItem("Discussion",R.drawable.ic_class4);
              menu.addItem("Logout", R.drawable.ic_class1);
          }
          else
@@ -129,6 +130,11 @@ public class StudentHomepage extends AppCompatActivity {
                 {
                     //Add intent to new event class
                     Intent intent=new Intent(getApplicationContext(),Event.class);
+                    startActivity(intent);
+                }
+                else if(menuItem.getText().equals("Discussion")){
+                    Intent intent=new Intent(getApplicationContext(),Discussion.class);
+                    intent.putExtra("branchyear",branchyear);
                     startActivity(intent);
                 }
                 else

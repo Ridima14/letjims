@@ -30,7 +30,7 @@
         <activity android:name=".StudentQuery"/>
         <activity android:name=".Event"/>
         <activity android:name=".GeneralClgNews"/>
-
+        <activity android:name=".Discussion"/>
 
     </application>
 

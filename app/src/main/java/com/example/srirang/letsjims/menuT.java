@@ -65,6 +65,8 @@ public class menuT extends AppCompatActivity {
             menu.addItem("CSE III", R.drawable.ic_class2);
             menu.addItem("CSE IV", R.drawable.ic_class3);
             menu.addItem("Logout", R.drawable.ic_class5);
+
+
         }
         else if(facultyname.equals("madhulika@gmail.com"))
         {
@@ -72,6 +74,7 @@ public class menuT extends AppCompatActivity {
             menu.addItem("CSE III", R.drawable.ic_class2);
             menu.addItem("ECE II", R.drawable.ic_class3);
             menu.addItem("Logout", R.drawable.ic_class5);
+
         }
         else if(facultyname.equals("pramod@gmail.com"))
         {
@@ -80,6 +83,7 @@ public class menuT extends AppCompatActivity {
             menu.addItem("ME II", R.drawable.ic_class3);
             menu.addItem("EE II", R.drawable.ic_class2);
             menu.addItem("Logout", R.drawable.ic_class5);
+
         }
         menu.setOnHSMenuClickListener(new HorizontalScrollMenuView.OnHSMenuClickListener() {
             @Override
@@ -90,6 +94,7 @@ public class menuT extends AppCompatActivity {
                 if(menuItem.getText().equals("Logout"))
                 {
                     logoutUser();}
+
                 else
                 {
                     Intent intent=new Intent(menuT.this,menuT.class);

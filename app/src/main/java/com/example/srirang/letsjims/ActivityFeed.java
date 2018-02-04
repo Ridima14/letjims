@@ -72,8 +72,6 @@ public class ActivityFeed extends AppCompatActivity {
                     ownerl.add(post.date+":"+post.owner+":"+post.classname);
 
                     contentl.add(post.subject);
-                    System.out.println(post.subject);
-
                 }
                 simpleArray();
             }
