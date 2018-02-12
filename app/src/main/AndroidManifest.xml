@@ -31,7 +31,8 @@
         <activity android:name=".Event"/>
         <activity android:name=".GeneralClgNews"/>
         <activity android:name=".Discussion"/>
-
+        <activity android:name=".Forum" />
+         <activity android:name=".Polls" />
     </application>
 
 </manifest>

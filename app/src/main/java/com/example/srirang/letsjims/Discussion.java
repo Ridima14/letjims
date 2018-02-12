@@ -22,7 +22,7 @@ import static com.example.srirang.letsjims.R.id.parent;
  * Created by Srirang on 2/4/2018.
  */
 
-public class Discussion extends AppCompatActivity implements OnItemClickListener {
+public class Discussion extends AppCompatActivity{
 
     HorizontalScrollMenuView menu;
     String branchyear;
@@ -50,15 +50,15 @@ public class Discussion extends AppCompatActivity implements OnItemClickListener
 
         ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(this,R.layout.simple_list_layout,allCategories);
         listView.setAdapter(arrayAdapter);
-    }
-
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            Intent myIntent = new Intent(view.getContext(), Forum.class);
-            myIntent.putExtra("categorychosen",allCategories[position]);
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selecteditem= (String) parent.getItemAtPosition(position);
+                 Intent intent1=new Intent(view.getContext(),Forum.class);
+                 intent1.putExtra("chosencategory",selecteditem);
+                 startActivity(intent1);
+            }
+        });
     }
 
 

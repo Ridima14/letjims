@@ -98,6 +98,7 @@ public class StudentHomepage extends AppCompatActivity {
              }
              menu.addItem("Events", R.drawable.ic_class5);
              menu.addItem("Discussion",R.drawable.ic_class4);
+             menu.addItem("Polls",R.drawable.ic_plus_icon);
              menu.addItem("Logout", R.drawable.ic_class1);
          }
          else
@@ -135,6 +136,10 @@ public class StudentHomepage extends AppCompatActivity {
                 else if(menuItem.getText().equals("Discussion")){
                     Intent intent=new Intent(getApplicationContext(),Discussion.class);
                     intent.putExtra("branchyear",branchyear);
+                    startActivity(intent);
+                }
+                else if(menuItem.getText().equals("Polls")){
+                    Intent intent=new Intent(getApplicationContext(),Polls.class);
                     startActivity(intent);
                 }
                 else
