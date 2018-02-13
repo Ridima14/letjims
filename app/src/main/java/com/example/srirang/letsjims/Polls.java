@@ -29,10 +29,10 @@ public class Polls extends AppCompatActivity {
 
         ArrayList<Actors> listItem = new ArrayList<Actors>();
         listItem.add(new Actors(R.drawable.eart,"Should our tutorials be published online?","Total votes:350"));
-        listItem.add(new Actors(R.drawable.kamera,"Should there be a seminar on professional photography?","140"));
-        listItem.add(new Actors(R.drawable.kantor,"Should the middle building be upgraded?","342"));
-        listItem.add(new Actors(R.drawable.kue,"Birthday party schemes in college canteen","400"));
-        listItem.add(new Actors(R.drawable.lencana,"Professional workshop on Firebase Google cloud services","149"));
+        listItem.add(new Actors(R.drawable.kamera,"Should there be a seminar on professional photography?","Total votes:140"));
+        listItem.add(new Actors(R.drawable.kantor,"Should the middle building be upgraded?","Total votes:342"));
+        listItem.add(new Actors(R.drawable.kue,"Birthday party schemes in college canteen","Total votes:400"));
+        listItem.add(new Actors(R.drawable.lencana,"Professional workshop on Firebase Google cloud services","Total votes:149"));
         listItem.add(new Actors(R.drawable.topi,"Documenting the farewell party","621"));
 
         ActorManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);

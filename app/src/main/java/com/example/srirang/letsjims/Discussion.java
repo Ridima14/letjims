@@ -27,6 +27,7 @@ public class Discussion extends AppCompatActivity{
     HorizontalScrollMenuView menu;
     String branchyear;
     String chosenSection;
+
     String[] allCategories={"WEB DEVELOPMENT","ANDROID DEVELOPMENT","MICROPROCESSOR","MATHEMATICS"
             ,"C++","MECHANICS","NETWORKING"};
     ListView listView;
